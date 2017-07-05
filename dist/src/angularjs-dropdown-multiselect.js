@@ -347,7 +347,10 @@
 					var paddingWidth = 12 * 2;
 					var borderWidth = 1 * 2;
 					var dropdownIconWidth = 8;
-					var widthLimit = $element[0].offsetWidth - paddingWidth - borderWidth - dropdownIconWidth;
+					var cs = getComputedStyle($element[0]);
+					var elementWidth = $element[0].offsetWidth - parseFloat(cs.paddingRight) - parseFloat(cs.paddingLeft) -
+														 parseFloat(cs.borderLeftWidth) + parseFloat(cs.borderRightWidth);
+					var widthLimit = elementWidth - paddingWidth - borderWidth - dropdownIconWidth;
 
 					var itemsText = [];
 
